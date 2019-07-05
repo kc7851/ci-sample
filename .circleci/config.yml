@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:2.7.15
+      - image: circleci/python:2.7.16
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -27,7 +27,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-
       - save_cache:
           paths:
             - ./venv
@@ -42,7 +41,6 @@ jobs:
           name: run tests
           command: |
             sh build.sh
-
       - store_artifacts:
           path: test-reports
           destination: test-reports
